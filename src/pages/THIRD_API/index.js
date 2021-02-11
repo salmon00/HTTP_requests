@@ -1,8 +1,7 @@
 import React from 'react';
 import './styles.scss';
 
-import Navbar from '../../components/Navbar'
-
+import Navbar from '../../components/Navbar';
 
 
 class Third extends React.Component {
@@ -26,14 +25,18 @@ class Third extends React.Component {
         <Navbar />
         <div className="heading">Third API</div>
         <div className="row-container">
-          {this.state.data.map(({id, title, thumbnailUrl}) => (
-              <div className="cards" key={id}>
-                <div className="title">{title}</div>
-                <div className="image">
-                  <img src={thumbnailUrl} />
+          {
+            this.state.data.length ? (
+              this.state.data.map(({id, title, thumbnailUrl}) => (
+                <div className="cards" key={id}>
+                  <div className="title">{title}</div>
+                  <div className="image">
+                    <img src={thumbnailUrl} alt="..." />
+                  </div>
                 </div>
-              </div>
-            ))}          
+              ))
+            ) : (<div>Loading...</div>)               
+          }          
         </div>
       </div>
     );
@@ -41,11 +44,3 @@ class Third extends React.Component {
 }
 
 export default Third;
-
-
-
-
-
-
-
-

@@ -1,8 +1,7 @@
 import React from 'react';
 import './styles.scss';
 
-import Navbar from '../../components/Navbar'
-
+import Navbar from '../../components/Navbar';
 
 
 class Fourth extends React.Component {
@@ -26,13 +25,17 @@ class Fourth extends React.Component {
         <Navbar />
         <div className="heading">Fourth API</div>
         <div className="container">
-          {this.state.data.map(({id, title, price, image}) => (
-              <div className="card" key={id}>
-                <div className="title">{title}</div>
-                <div className="price">Price: {price}</div>
-                <div className="img"><img src={image}></img></div>
-              </div>
-            ))}          
+          {
+            this.state.data.length ? (
+              this.state.data.map(({id, title, price, image}) => (
+                <div className="card" key={id}>
+                  <div className="title">{title}</div>
+                  <div className="price">Price: {price}</div>
+                  <div className="img"><img src={image} alt="..."></img></div>
+                </div>
+              ))
+            ) : (<div>Loading...</div>)                
+          }          
         </div>
       </div>
     );
@@ -40,11 +43,3 @@ class Fourth extends React.Component {
 }
 
 export default Fourth;
-
-
-
-
-
-
-
-

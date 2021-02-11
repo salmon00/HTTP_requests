@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import './styles.scss'
+import { Link } from 'react-router-dom';
+import './styles.scss';
 
 // Class Component
 class Navbar extends React.Component{

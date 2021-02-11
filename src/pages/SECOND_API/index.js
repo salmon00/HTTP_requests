@@ -1,8 +1,7 @@
 import React from 'react';
 import './styles.scss';
 
-import Navbar from '../../components/Navbar'
-
+import Navbar from '../../components/Navbar';
 
 
 class Second extends React.Component {
@@ -26,11 +25,15 @@ class Second extends React.Component {
         <Navbar />
         <div className="heading">Second API</div>
         <div className="row-container">
-          {this.state.data.map(({ id, title, ...otherProps}) => (
-              <div className="cards" key={id}>
-                <div className="title">{title}</div>
-              </div>
-            ))}          
+          {
+            this.state.data.length ? (
+              this.state.data.map(({ id, title }) => (
+                <div className="cards" key={id}>
+                  <div className="title">{title}</div>
+                </div>
+              ))
+            ) : (<div>Loading...</div>)              
+          }          
         </div>
       </div>
     );
@@ -38,11 +41,3 @@ class Second extends React.Component {
 }
 
 export default Second;
-
-
-
-
-
-
-
-
